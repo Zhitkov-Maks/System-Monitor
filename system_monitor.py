@@ -90,7 +90,7 @@ def display_app(lst_info: list, stdscr, start_time) -> None:
 async def run_main(stdscr: curses.window) -> None:
     """Основная функция, принимающая curses-окно.
 
-    :param stdscr (curses.window): Главное окно curses, 
+    :param stdscr (curses.window): Главное окно curses,
                                     используемое для вывода
     """
     curses.curs_set(0)

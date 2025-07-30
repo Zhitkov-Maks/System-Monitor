@@ -5,7 +5,7 @@ import sys
 
 def error_decorate(errors: tuple):
     """
-    Декоратор принимает кортеж с исключениями для 
+    Декоратор принимает кортеж с исключениями для
     обработки ошибок.
     """
     def decorate(func: Callable) -> Callable:
@@ -16,7 +16,7 @@ def error_decorate(errors: tuple):
         @wraps(func)
         def wrapper(*args: Any, **kwargs: Any) -> Any:
             """
-            Вызов непосредственно функции и обработка 
+            Вызов непосредственно функции и обработка
             возможных ошибок.
             """
             try:
