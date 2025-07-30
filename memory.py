@@ -1,5 +1,6 @@
 from util import error_decorate
 from table import format_table
+from pprint import pprint
 
 
 @error_decorate((FileNotFoundError, PermissionError, ValueError, OSError))
@@ -17,6 +18,10 @@ def get_memory_info():
     )
     used: int = total - available
     used_percent: float = (used / total) * 100
+    swap_total: float = round(int(meminfo.get('SwapTotal')) / 1048576, 2)
+    swap_free: float = round(int(meminfo.get('SwapFree')) / 1048576, 2)
+    swap_used: float = round(int(meminfo.get('SwapCached')) / 1048576, 2)
+    cashed: float = round(int(meminfo.get('Cached')) / 1048576, 2)
 
     # Создаем шкалу
     bar_length = 20
@@ -27,6 +32,14 @@ def get_memory_info():
         ["Всего", f"{round(total / 1048576, 2)} ГБ"],
         ["Доступно", f"{round(available / 1048576, 2)} ГБ"],
         ["Использовано", f"{round(used / 1048576, 2)} ГБ"],
+        ['Кэш', f"{cashed} ГБ"],
+        ["SWAP", f"{swap_total} ГБ"],
+        ["SWAP используеться", f"{swap_used} ГБ"],
+        ["SWAP свободно", f"{swap_free} ГБ"],
         ["Использовано %", f"{round(used_percent, 2)}%"],
         ["Шкала", bar]
     ])
+
+
+if __name__ == "__main__":
+    get_memory_info()
