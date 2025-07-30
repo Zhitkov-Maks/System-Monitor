@@ -1,6 +1,5 @@
 from util import error_decorate
 from table import format_table
-from pprint import pprint
 
 
 @error_decorate((FileNotFoundError, PermissionError, ValueError, OSError))
@@ -39,7 +38,3 @@ def get_memory_info():
         ["Использовано %", f"{round(used_percent, 2)}%"],
         ["Шкала", bar]
     ])
-
-
-if __name__ == "__main__":
-    get_memory_info()
