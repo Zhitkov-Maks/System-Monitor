@@ -132,7 +132,3 @@ def get_fan_and_in() -> List[List[str]]:
         files_path = os.listdir(device_path)
         find_path_for_writing(device_path, files_path, data)
     return format_table("ПРОЧИЕ ДАТЧИКИ", data)
-
-
-if __name__ == "__main__":
-    get_fan_and_in()
