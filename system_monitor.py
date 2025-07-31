@@ -13,6 +13,7 @@ from cpu_used import get_cpu_usage
 from disk import get_disk_info
 from core import get_cpu_info
 from memory import get_memory_info
+from voltage import get_fan_and_in
 
 
 def safe_addstr(
@@ -104,6 +105,7 @@ async def run_main(stdscr: curses.window) -> None:
                 loop.run_in_executor(pool, get_cpu_usage),
                 loop.run_in_executor(pool, get_memory_info),
                 loop.run_in_executor(pool, get_cpu_info),
+                loop.run_in_executor(pool, get_fan_and_in),
                 loop.run_in_executor(pool, time_sleep)
             ]
             results = await asyncio.gather(*tasks)

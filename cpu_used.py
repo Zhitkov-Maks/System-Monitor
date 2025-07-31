@@ -95,7 +95,6 @@ def get_general_statistic(
                 cpu_data.append(separator)
 
             core_names, core_percents, core_freq = [], [], []
-
     return format_table("ЗАГРУЗКА CPU", cpu_data)
 
 
@@ -121,3 +120,7 @@ def get_cpu_usage(interval=1) -> List[str]:
 
     freqs: list[float] = get_cpu_frequencies()
     return get_general_statistic(diffs, freqs)
+
+
+if __name__ == "__main__":
+    get_cpu_usage()
