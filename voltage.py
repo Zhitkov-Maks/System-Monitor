@@ -94,7 +94,7 @@ def find_path_for_writing(device_path, files: list[str], lst: list[list]):
             result = get_hwmon_data(full_path)
             append_data(
                 name="Напряжение(бат)",
-                val=f"{round(int(result)/1000, 2)} В",
+                val=f"{round(int(result)/1000, 2)} Вольт",
                 mark=mark_voltage(round(int(result)/1000, 2)),
                 lst=lst
             )
@@ -113,8 +113,8 @@ def find_path_for_writing(device_path, files: list[str], lst: list[list]):
             result
             result = round(result / 1000000, 3)
             append_data(
-                name="Мощность(разряд/бат)",
-                val=result,
+                name="Мощность",
+                val=f"{result} Ватт",
                 mark=get_mark_power(result),
                 lst=lst
             )
