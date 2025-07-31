@@ -120,7 +120,3 @@ def get_cpu_usage(interval=1) -> List[str]:
 
     freqs: list[float] = get_cpu_frequencies()
     return get_general_statistic(diffs, freqs)
-
-
-if __name__ == "__main__":
-    get_cpu_usage()
