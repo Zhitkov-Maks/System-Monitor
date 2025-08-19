@@ -41,7 +41,7 @@ def mark_voltage(val: float) -> str:
     Получаем метку о напряжении.
     :param val:
     """
-    if 12.8 >= val >= 12.6:
+    if 13 >= val >= 12.6:
         return "Заряжена"
     elif 10.6 < val < 12.6:
         return "В норме"
