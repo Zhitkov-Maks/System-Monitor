@@ -98,7 +98,7 @@ async def run_main(stdscr: curses.window) -> None:
     while True:
         start_time: float = time.time()
         # Получаем динамические данные асинхронно
-        with ThreadPoolExecutor(max_workers=4) as pool:
+        with ThreadPoolExecutor(max_workers=6) as pool:
             loop: AbstractEventLoop = asyncio.get_running_loop()
             tasks: list = [
                 loop.run_in_executor(pool, get_disk_info),
